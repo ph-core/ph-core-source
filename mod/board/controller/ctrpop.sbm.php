@@ -96,9 +96,9 @@ class Submit{
                     );
                     $tar_ln = $sql->fetch('ln');
                     if($tar_ln==''){
-                        $del_where[$i] = '(ln<='.$org_arr['ln'].' AND ln>$ln_min AND rn>='.$org_arr['rn'].')';
+                        $del_where[$i] = '(ln<='.$org_arr['ln'].' AND ln>'.$ln_min.' AND rn>='.$org_arr['rn'].')';
                     }else{
-                        $del_where[$i] = '(ln<='.$org_arr['ln'].' AND ln>$tar_ln AND rn>='.$org_arr['rn'].')';
+                        $del_where[$i] = '(ln<='.$org_arr['ln'].' AND ln>'.$tar_ln.' AND rn>='.$org_arr['rn'].')';
                     }
                 }
             }
