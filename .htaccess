@@ -1,0 +1,15 @@
+RewriteEngine On
+
+RewriteRule ^install($|/.*) - [L]
+
+RewriteRule ^manage/$ ./manage/index.php [L]
+RewriteCond %{QUERY_STRING} ^(.*)$ [NC]
+RewriteRule ^manage/([a-zA-Z0-9-_]+)$ ./manage/index.php?%1 [L]
+
+RewriteRule ^([a-zA-Z0-9-_/]+)/$ ./index.php?rewritepage=$1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$ [NC]
+RewriteRule ^([a-zA-Z0-9-_/]+)$ ./index.php?rewritepage=$1&%1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .? ./index.php?rewritepage=error_404% [L]

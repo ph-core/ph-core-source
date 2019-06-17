@@ -1,0 +1,64 @@
+<?php
+use Corelib\Method;
+use Corelib\Func;
+
+include_once './install.core.php';
+
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS']!=='off' || $_SERVER['SERVER_PORT']==443) ? 'https://' : 'http://';
+$realdir = str_replace($_SERVER['DOCUMENT_ROOT'],'',str_replace("/install/",'',str_replace(basename(__FILE__),'',realpath(__FILE__))));
+
+$req = Method::request('POST','engine,host,name,user,pwd,pfx');
+
+if(step1_chk()===false){
+    Func::err_location('Step 1 부터 진행해야 합니다.','./index.php');
+}
+
+if(!file_exists('../data/dbconn.temp.php')){
+
+    if(!$req['engine'] || !$req['host'] || !$req['name'] || !$req['user'] || !$req['pwd'] || !$req['pfx']){
+        Func::err_back('Database 정보가 입력되지 않았습니다.');
+    }
+
+    if(!preg_match('/^[0-9a-zA-Z_]+$/',$req['pfx'])){
+        Func::err_back('Table Prefix가 올바르지 않습니다.');
+    }
+
+    try{
+        switch($req['engine']){
+            default :
+                $pdo = new \PDO(
+                    'mysql:host='.$req['host'].';dbname='.$req['name'],$req['user'],$req['pwd'],
+                    array(
+                        \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+                    )
+                );
+                $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+                break;
+        }
+    }
+    catch(Exception $e){
+        Func::err_back('Database 접속에 실패했습니다.');
+    }
+
+    include_once './scheme/core.'.$req['engine'].'.sql';
+    include_once './scheme/modules.'.$req['engine'].'.sql';
+
+    $stmt = $pdo->prepare($SCHEME_CORE);
+    $stmt->execute();
+    $stmt = $pdo->prepare($SCHEME_MOD);
+    $stmt->execute();
+
+    $file = @fopen('../data/dbconn.temp.php','w');
+    @fwrite($file,"<?php\ndefine('DB_ENGINE','".$req['engine']."');\ndefine('DB_HOST','".$req['host']."');\ndefine('DB_USER','".$req['user']."');\ndefine('DB_PWD','".$req['pwd']."');\ndefine('DB_NAME','".$req['name']."');\ndefine('DB_PREFIX','".$req['pfx']."');\ndefine('DB_SPECIALCHARS',1);\ndefine('DB_NL2BR',1);\n?>");
+    @fclose($file);
+
+    $file = @fopen('../data/path.set.php','w');
+    @fwrite($file,"<?php\ndefine('PH_DOMAIN','".$protocol.$_SERVER['HTTP_HOST'].$realdir."');\ndefine('PH_DIR','".$realdir."');\ndefine('PH_PATH',\$_SERVER['DOCUMENT_ROOT'].PH_DIR);\n?>");
+    @fclose($file);
+
+    @chmod('../data/manage/',0707);
+}
+
+include_once './head.set.php';
+require_once './html/step4.html';
+include_once './foot.set.php';
