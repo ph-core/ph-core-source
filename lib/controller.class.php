@@ -35,6 +35,7 @@ class Make_Controller{
     public function layout(){
         self::set_ob();
         self::$layout_type = 'layout';
+        $this->layout = new Layout();
         return $this;
     }
 
@@ -71,13 +72,12 @@ class Make_Controller{
     public function common(){
         self::set_ob();
         self::$layout_type = 'common';
+        $this->layout = new Layout();
         return $this;
     }
 
     public function head(){
         global $CONF,$MB,$MODULE,$THEME,$NAVIGATOR;
-
-        $this->layout = new Layout();
 
         ob_start();
         if(self::$layout_type=='layout'){
@@ -108,8 +108,6 @@ class Make_Controller{
 
     public function foot(){
         global $CONF,$MB,$MODULE,$THEME,$CATEGORY;
-
-        $this->layout = new Layout();
 
         self::$ob_body_html = ob_get_contents();
         ob_end_clean();
