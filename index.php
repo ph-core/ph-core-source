@@ -1,5 +1,5 @@
 <?php
-use Corelib\Functions;
+use Corelib\Func;
 
 if(!isset($rewritepage) && isset($_GET['rewritepage'])){
     $rewritepage = $_GET['rewritepage'];
@@ -25,7 +25,7 @@ if(in_array($fpath,$page_pos)===false){
     if((isset($OUTLOAD) && $OUTLOAD==1) || (isset($_GET['OUTLOAD']) && $_GET['OUTLOAD']==1)){
         $file = PH_PATH."/".$rewritepage.".php";
     }else{
-        Functions::location(PH_DIR."/error_404");
+        Func::location(PH_DIR."/error_404");
     }
 }
 
@@ -42,7 +42,7 @@ if(strpos($file,"/mod/")!==false){
 if(file_exists($file)){
     include_once $file;
 }else{
-    Functions::location(PH_DIR."/error_404");
+    Func::location(PH_DIR."/error_404");
     exit;
 }
 
