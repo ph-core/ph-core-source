@@ -93,13 +93,13 @@
 </div>
 <div id="slide-bg"></div>
 
-<!-- Main page -->
 <?php if(defined("MAINPAGE")){ ?>
+<!-- Main page -->
 <div id="main">
     <div id="content">
 
-<!-- Sub page -->
 <?php }else{ ?>
+<!-- Sub page -->
 <div id="sub">
     <div id="content">
 
