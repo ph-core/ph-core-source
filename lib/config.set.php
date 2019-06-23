@@ -74,9 +74,3 @@ ini_set('display_errors',1);
 //////////////////////////////
 define('PH_PLUGIN_CAPCHA','capcha');
 define('PH_PLUGIN_CKEDITOR','ckeditor4');
-
-//////////////////////////////
-// 부가 기능 load 상수
-//////////////////////////////
-define('CALL_POPUP',PH_PATH.'/lib/popup.inc.php');
-define('CALL_BANNER',PH_PATH.'/lib/banner.inc.php');
