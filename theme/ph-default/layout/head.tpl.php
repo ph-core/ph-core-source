@@ -93,7 +93,7 @@
 </div>
 <div id="slide-bg"></div>
 
-<?php if(defined("MAINPAGE")){ ?>
+<?php if(defined('MAINPAGE')){ ?>
 <!-- Main page -->
 <div id="main">
     <div id="content">
