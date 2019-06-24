@@ -13,7 +13,7 @@ define('PH_MOD_DIR',PH_DIR.'/mod'); //Module 경로
 define('PH_MOD_PATH',PH_PATH.'/mod'); //Module PHP 경로
 define('PH_PLUGIN_DIR',PH_DIR.'/plugin'); //Plugin 경로
 define('PH_PLUGIN_PATH',PH_PATH.'/plugin'); //Plugin PHP 경로
-define('PH_DATA_DIR',PH_DIR.'/data'); //Data PHP 경로
+define('PH_DATA_DIR',PH_DIR.'/data'); //Data 경로
 define('PH_DATA_PATH',PH_PATH.'/data'); //Data PHP 경로
 define('PH_MANAGE_DIR',PH_DIR.'/manage'); //Manage 경로
 define('PH_MANAGE_PATH',PH_PATH.'/manage'); //Manage PHP 경로
