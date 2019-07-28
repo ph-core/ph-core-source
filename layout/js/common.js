@@ -177,21 +177,21 @@ ajaxSubmit = {
 	'action' : function($form){
 		var ajaxAction = $form.attr('ajax-action');
 
-		$.ajax({
-			'type' : 'POST',
-			'url' : ajaxAction,
-			'cache' : false,
-			'data' : $form.serialize(),
-			'dataType' : 'html',
-			'beforeSend' : function(){
-				ckeEditor_action();
-        $form.find('button,:button').attr('disabled',true);
-      },
-			'success' : function(data){
-				returnAjaxSubmit($form,data);
-				$form.find('button,:button').attr('disabled',false);
-			}
-		});
+        $.ajax({
+            'type' : 'POST',
+            'url' : ajaxAction,
+            'cache' : false,
+            'data' : $form.serialize(),
+            'dataType' : 'html',
+            'beforeSend' : function(){
+                ckeEditor_action();
+                $form.find('button,:button').attr('disabled',true);
+            },
+            'success' : function(data){
+                returnAjaxSubmit($form,data);
+                $form.find('button,:button').attr('disabled',false);
+            }
+        });
 	}
 }
 

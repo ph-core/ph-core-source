@@ -86,22 +86,6 @@ class Valid{
                 ';
                 break;
 
-            case 'alert->close->opener-reload' :
-                echo '
-                    [
-                        {
-                            "success" : "alert->close->opener-reload",
-                            "opt" : [
-                                {
-                                    "msg" : "'.self::$msg.'",
-                                    "location" : "'.self::$location.'"
-                                }
-                            ]
-                        }
-                    ]
-                ';
-                break;
-
             case 'ajax-load' :
                 echo '
                     [

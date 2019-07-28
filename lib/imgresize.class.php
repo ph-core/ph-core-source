@@ -19,11 +19,6 @@ class Imgresize{
         }
     }
 
-    private function get_filetype(){
-        $func = new Func();
-        $this->type = $func->get_filetype($this->orgimg);
-    }
-
     private function make_tmporg(){
         switch($this->type){
             case 'png' :

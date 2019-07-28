@@ -20,8 +20,8 @@ class Uploader{
     }
 
     //디렉토리 유무 검사
-    public function isdir($file){
-        if(@is_dir($file)){
+    public function isdir($dir){
+        if(@is_dir($dir)){
             return true;
         }else{
             return false;

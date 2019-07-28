@@ -213,8 +213,7 @@ class Make_View_Form{
         $form_id = $rewritepage.'Form';
         if(isset($this->set['id']) && $this->set['id']!=''){
             $form_id = $this->set['id'];
-        }else
-        if(!isset($this->set['type'])){
+        }else if(!isset($this->set['type'])){
             $this->set['type'] = 'html';
         }
         if(!isset($this->set['action'])){
@@ -231,18 +230,18 @@ class Make_View_Form{
 
         switch($this->set['type']){
             case 'static' :
-            if($this->set['target']=='view'){
-                $form_html = 'name="'.$form_id.'" id="'.$form_id.'" action="'.$this->set['action'].'" method="'.$this->set['method'].'"';
-            }else{
-                $form_html = 'name="'.$form_id.'" id="'.$form_id.'" action="'.$baselink.$this->set['action'].'" method="'.$this->set['method'].'"';
-            }
-            break;
+                if($this->set['target']=='view'){
+                    $form_html = 'name="'.$form_id.'" id="'.$form_id.'" action="'.$this->set['action'].'" method="'.$this->set['method'].'"';
+                }else{
+                    $form_html = 'name="'.$form_id.'" id="'.$form_id.'" action="'.$baselink.$this->set['action'].'" method="'.$this->set['method'].'"';
+                }
+                break;
             case 'html' :
-            $form_html = 'name="'.$form_id.'" id="'.$form_id.'" ajax-action="'.$baselink.$this->set['action'].'" ajax-type="'.$this->set['type'].'"';
-            break;
+                $form_html = 'name="'.$form_id.'" id="'.$form_id.'" ajax-action="'.$baselink.$this->set['action'].'" ajax-type="'.$this->set['type'].'"';
+                break;
             case 'multipart' :
-            $form_html = 'name="'.$form_id.'" id="'.$form_id.'" enctype="multipart/form-data" ajax-action="'.$baselink.$this->set['action'].'" ajax-type="'.$this->set['type'].'"';
-            break;
+                $form_html = 'name="'.$form_id.'" id="'.$form_id.'" enctype="multipart/form-data" ajax-action="'.$baselink.$this->set['action'].'" ajax-type="'.$this->set['type'].'"';
+                break;
         }
         echo $form_html;
     }
