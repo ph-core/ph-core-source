@@ -98,7 +98,9 @@
             <div class="center">
                 <a href="#" class="btn2 delBtn mr30"><i class="fa fa-trash-alt"></i>문의 내역 삭제</a>
                 <a href="./?mod=<?=MOD_CONTACTFORM?>&href=lists<?=$manage->lnk_def_param()?>" class="btn1"><i class="fa fa-bars"></i>리스트</a>
+                <?php if($is_reply_btn_show){ ?>
                 <button type="submit" class="btn1"><i class="fa fa-check"></i>답변 발송</button>
+                <?php } ?>
             </div>
         </div>
     </form>

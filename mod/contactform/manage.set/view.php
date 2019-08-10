@@ -64,8 +64,10 @@ class View extends \Controller\Make_Controller{
 
         if($arr['rep_idx']!=0){
             $is_reply_show = true;
+            $is_reply_btn_show = false;
         }else{
             $is_reply_show = false;
+            $is_reply_btn_show = show;
         }
 
         $view = array();
@@ -110,6 +112,7 @@ class View extends \Controller\Make_Controller{
         $this->set('manage',$manage);
         $this->set('view',$view);
         $this->set('is_reply_show',$is_reply_show);
+        $this->set('is_reply_btn_show',$is_reply_btn_show);
         $this->set('print_name',print_name($arr));
         $this->set('print_reply',print_reply($arr,$reparr));
     }
