@@ -19,11 +19,9 @@ class Submit{
 
         $sql->scheme('Module\\Contactform\\Scheme');
 
-        include_once PH_PLUGIN_PATH.'/capcha/zmSpamFree.php';
-
         Method::security('REFERER');
         Method::security('REQUEST_POST');
-        $req = Method::request('POST','name,email,phone,article,capcha,contact_1,contact_2,contact_3,contact_4,contact_5,contact_6,contact_7,contact_8,contact_9,contact_10');
+        $req = Method::request('POST','name,email,phone,article,captcha,contact_1,contact_2,contact_3,contact_4,contact_5,contact_6,contact_7,contact_8,contact_9,contact_10');
 
         Valid::isnick('name',$req['name'],1,'');
         Valid::isemail('email',$req['email'],1,'');
@@ -31,13 +29,12 @@ class Submit{
         Valid::notnull('article',$req['article'],'');
 
         if(!IS_MEMBER){
-            Valid::notnull('capcha',$req['capcha'],'');
-            if(zsfCheck($req['capcha'],'')!=true){
+            if(!Func::chk_captcha($req['captcha'])){
                 Valid::set(
                     array(
                         'return' => 'error',
-                        'input' => 'capcha',
-                        'err_code' => 'NOTMATCH_CAPCHA'
+                        'input' => 'captcha',
+                        'err_code' => 'NOTMATCH_CAPTCHA'
                     )
                 );
                 Valid::success();

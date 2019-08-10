@@ -137,8 +137,6 @@ class Write extends \Controller\Make_Controller{
 
         $sql->scheme('Module\\Board\\Scheme');
 
-        Func::add_javascript(PH_PLUGIN_DIR.'/'.PH_PLUGIN_CKEDITOR.'/ckeditor.js');
-
         $req = Method::request('GET','mode,wrmode,read,page,where,keyword,category');
 
         $board_id = $MOD_CONF['id'];
@@ -283,9 +281,9 @@ class Write extends \Controller\Make_Controller{
             }
 
             if(!IS_MEMBER){
-                $is_capcha_show = true;
+                $is_captcha_show = true;
             }else{
-                $is_capcha_show = false;
+                $is_captcha_show = false;
             }
 
             $is_file_show = array();
@@ -330,7 +328,7 @@ class Write extends \Controller\Make_Controller{
             $this->set('is_email_show',$is_email_show);
             $this->set('is_file_show',$is_file_show);
             $this->set('is_filename_show',$is_filename_show);
-            $this->set('is_capcha_show',$is_capcha_show);
+            $this->set('is_captcha_show',$is_captcha_show);
 
         }
         $this->set('board_id',$board_id);
@@ -348,6 +346,7 @@ class Write extends \Controller\Make_Controller{
         $this->set('opt_secret',opt_secret($arr));
         $this->set('opt_return_email',opt_return_email($arr));
         $this->set('print_filesize',print_filesize());
+        $this->set('captcha',Func::get_captcha('',1));
         $this->set('top_source',$boardconf['top_source']);
         $this->set('bottom_source',$boardconf['bottom_source']);
     }

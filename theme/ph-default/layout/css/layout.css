@@ -9,8 +9,8 @@ html{overflow-x: hidden;}
 .inp.w50{min-width: 150px;}
 select.inp{padding-right: 0;}
 textarea{padding: 10px;width: 100%;min-height: 200px;border: 1px solid #dddddd;background: #ffffff;border-radius: 3px;box-sizing: border-box;}
-.plugin-capcha-img{vertical-align: top;}
-.plugin-capcha{vertical-align: top;height: 25px;padding: 0 5px;width: 70px;height: 25px;border: 1px solid #dddddd;background: #ffffff;padding: 0 10px;border-radius: 3px;box-sizing: border-box;}
+.plugin-captcha-img{vertical-align: top;}
+.plugin-captcha{vertical-align: top;height: 25px;padding: 0 5px;width: 70px;height: 25px;border: 1px solid #dddddd;background: #ffffff;padding: 0 10px;border-radius: 3px;box-sizing: border-box;}
 
 /* Button */
 .btn-wrap{position: relative;margin-top: 40px;text-align: center;min-height: 40px;}
@@ -32,7 +32,7 @@ textarea{padding: 10px;width: 100%;min-height: 200px;border: 1px solid #dddddd;b
 
 /* Table */
 .table{width: 100%;border-collapse: collapse;}
-.table tr > *{padding: 15px;border: 1px solid #f1f1f1;border-width: 1px 0 1px 0;font-size: 14px;transition: all 0.3s;}
+.table tr > *{padding: 15px;border: 1px solid #f1f1f1;border-width: 1px 0 1px 0;font-size: 14px;transition: background 0.3s;}
 .table tr:hover > *{background: #f7f7f7;}
 .table > thead > tr > th{font-weight: normal;background: #f7f7f7;color: #000000;border: 1px solid #dddddd;border-width: 1px 0 0 0;}
 .table > tbody > tr > th{background: #fafafa;font-weight: normal;text-align: left;color: #333333;}
@@ -42,7 +42,7 @@ textarea{padding: 10px;width: 100%;min-height: 200px;border: 1px solid #dddddd;b
 .table.listtbl tbody > tr > *{text-align: center;}
 
 .table_wrt{width: 100%;border-collapse: collapse;}
-.table_wrt tr > *{padding: 15px;border: 1px solid #f1f1f1;border-width: 1px 0 1px 0;font-size: 14px;transition: all 0.3s;}
+.table_wrt tr > *{padding: 15px;border: 1px solid #f1f1f1;border-width: 1px 0 1px 0;font-size: 14px;transition: background 0.3s;}
 .table_wrt tr:first-child > *{border-top: 1px solid #dddddd;}
 .table_wrt tbody th{background: #fafafa;font-weight: normal;text-align: left;color: #333333;}
 .table_wrt tbody th em{font-style: normal;color: #ff0000;display: inline-block;vertical-align: middle;}
@@ -82,7 +82,7 @@ textarea{padding: 10px;width: 100%;min-height: 200px;border: 1px solid #dddddd;b
 .email-chg-guid{display: block;color: #5b5252;font-size: 12px;margin-top: 10px;padding: 10px;line-height: 16px;background: #fde8e9;border: 1px solid #f4cdcf;border-radius: 3px;}
 
 /* Popup */
-.ph-pop{position: absolute;z-index: 400;background: #ffffff;box-shadow: 0 0 20px rgba(0,0,0,0.05);border: 1px solid rgba(0,0,0,0.1);border-radius: 3px;overflow: hidden;}
+.ph-pop{position: absolute;z-index: 50;background: #ffffff;box-shadow: 0 0 20px rgba(0,0,0,0.05);border: 1px solid rgba(0,0,0,0.1);border-radius: 3px;overflow: hidden;}
 .ph-pop .link{position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 2;}
 .ph-pop .pop-cont{position: relative;overflow: hidden;}
 .ph-pop .pop-btn{position: relative;zoom: 1;z-index: 3;border-top: 1px solid rgba(0,0,0,0.1);}

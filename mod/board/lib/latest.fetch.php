@@ -2,7 +2,7 @@
 use \Corelib\Func;
 use \Make\Database\Pdosql;
 
-class latest_fetch extends \Controller\Make_Controller{
+class Latest_fetch extends \Controller\Make_Controller{
 
     static private $called_func = 0;
 

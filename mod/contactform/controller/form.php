@@ -1,6 +1,8 @@
 <?php
 namespace Module\Contactform;
 
+use Corelib\Func;
+
 class Form extends \Controller\Make_Controller{
 
     public function _init(){
@@ -17,7 +19,7 @@ class Form extends \Controller\Make_Controller{
     }
 
     public function _make(){
-
+        $this->set('captcha',Func::get_captcha('',1));
     }
 
 }

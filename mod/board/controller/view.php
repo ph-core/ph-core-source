@@ -198,11 +198,12 @@ class View extends \Controller\Make_Controller{
             $boardconf[$key] = $value;
         }
 
+        //captcha 시작 (코멘트에 captcha 노출하기 위해 view 에서 미리 js로드)
+        Func::get_captcha('captcha',0);
+        Func::get_captcha('re_captcha',0);
+
         //add title
         Func::add_title($boardconf['title'].' - '.$arr['subject']);
-
-        //add stylesheet
-        Func::add_stylesheet(PH_PLUGIN_DIR.'/'.PH_PLUGIN_CKEDITOR.'/contents_view.css');
 
         //게시물이 답글이며 회원에 대한 답글인 경우 부모글의 회원 idx 가져옴
         if($arr['rn']>0 && $arr['pwd']==''){

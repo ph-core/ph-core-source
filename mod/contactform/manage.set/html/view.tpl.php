@@ -1,4 +1,4 @@
-1<div id="sub-tit">
+<div id="sub-tit">
     <h2>온라인 문의 확인</h2>
     <em><i class="fa fa-exclamation-circle"></i>온라인 문의 내역 확인 및 답변</em>
 </div>

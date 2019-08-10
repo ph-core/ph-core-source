@@ -18,6 +18,7 @@ $manage = new Manage();
 <link rel="stylesheet" href="<?php echo PH_DIR; ?>/layout/css/jquery.common.css" />
 <link rel="stylesheet" href="<?php echo PH_DIR; ?>/manage/css/common.css" />
 <link rel="stylesheet" href="<?php echo PH_DIR; ?>/manage/css/global.css" />
+<link rel="stylesheet" href="<?php echo PH_PLUGIN_DIR; ?>/<?php echo PH_PLUGIN_CKEDITOR; ?>/contents_view.css" />
 <script type="text/javascript">
 var PH_DIR = '<?php echo PH_DIR; ?>';
 var PH_DOMAIN = '<?php echo PH_DOMAIN; ?>';
@@ -31,6 +32,7 @@ var PH_MN_HREF_HREF = '<?php echo $PARAM['href']; ?>';
 <script src="<?php echo PH_DIR; ?>/layout/js/jquery.common.js"></script>
 <script src="<?php echo PH_DIR; ?>/layout/js/common.js"></script>
 <script src="<?php echo PH_DIR; ?>/manage/js/global.js"></script>
+<script src="<?php echo PH_PLUGIN_DIR; ?>/<?php echo PH_PLUGIN_CKEDITOR; ?>/ckeditor.js"></script>
 </head>
 <body>
 <div id="<?php if(defined("MAINPAGE")){ echo "main"; }else{ echo "sub"; } ?>">

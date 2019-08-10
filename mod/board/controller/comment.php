@@ -31,7 +31,7 @@ class Comment extends \Controller\Make_Controller{
         //삭제 버튼
         function delete_btn($arr,$view){
             global $MB,$boardconf;
-            if(($arr['mb_idx']==$MB['idx']&&$arr['mb_idx']!=''&&!$view['dregdate']) || ($MB['level']<$boardconf['ctr_level']&&!$view['dregdate'])){
+            if(($arr['mb_idx']==$MB['idx']&&$arr['mb_idx']!=0&&!$view['dregdate']) || ($MB['level']<$boardconf['ctr_level']&&!$view['dregdate'])){
                 return '<a href="#" id="cmt-delete" align="absmiddle" data-cmt-delete="'.$arr['idx'].'"><img src="'.MOD_BOARD_THEME_DIR.'/images/cmt-delete-ico.png" align="absmiddle" title="삭제" alt="삭제" /> 삭제</a>';
             }
         }
@@ -39,7 +39,7 @@ class Comment extends \Controller\Make_Controller{
         //수정 버튼
         function modify_btn($arr,$view){
             global $MB,$boardconf;
-            if(($arr['mb_idx']==$MB['idx']&&$arr['mb_idx']!=''&&!$view['dregdate']) || ($MB['level']<$boardconf['ctr_level']&&!$view['dregdate'])){
+            if(($arr['mb_idx']==$MB['idx']&&$arr['mb_idx']!=0&&!$view['dregdate']) || ($MB['level']<$boardconf['ctr_level']&&!$view['dregdate'])){
                 return '<a href="#" id="cmt-modify" data-cmt-modify="'.$arr['idx'].'"><img src="'.MOD_BOARD_THEME_DIR.'/images/cmt-modify-ico.png" align="absmiddle" title="수정" alt="수정" /> 수정</a>';
             }
         }
@@ -154,6 +154,8 @@ class Comment extends \Controller\Make_Controller{
             $this->set('board_id',$board_id);
             $this->set('read',$req['read']);
             $this->set('total_cnt',$total_cnt);
+            $this->set('captcha',Func::get_captcha('',0));
+            $this->set('re_captcha',Func::get_captcha('re_captcha',0));
         }
     }
 

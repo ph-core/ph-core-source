@@ -45,8 +45,6 @@ class Modify extends \Controller\Make_Controller{
 
         $req = Method::request('GET','idx');
 
-        Func::add_javascript(PH_PLUGIN_DIR.'/'.PH_PLUGIN_CKEDITOR.'/ckeditor.js');
-
         $sql->query(
             $sql->scheme->manage('select:contents'),
             array(

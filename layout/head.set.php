@@ -39,6 +39,7 @@ if($use_respd===true){
 <?php if($CONF['google_verific']){ ?>
 <meta name="google-site-verification" content="<?php echo $CONF['google_verific']; ?>" />
 <?php } ?>
+<meta name="EnlighterJS" content="Advanced javascript based syntax highlighting" data-indent="4" data-selector-block="pre" data-selector-inline="code" data-language="javascript" />
 <?php
 if($CONF['meta']){
   echo $CONF['meta'].PHP_EOL;
@@ -53,6 +54,7 @@ if($CONF['meta']){
 <link rel="stylesheet" href="<?php echo PH_THEME_DIR; ?>/layout/css/layout.css" />
 <?php if($use_respd===true){ ?>
 <link rel="stylesheet" href="<?php echo PH_THEME_DIR; ?>/layout/css/respond.css" />
+<link rel="stylesheet" href="<?php echo PH_PLUGIN_DIR; ?>/<?php echo PH_PLUGIN_CKEDITOR; ?>/contents_view.css" />
 <?php } ?>
 <?php
 //모듈별 CSS
@@ -73,6 +75,7 @@ var PH_PLUGIN_DIR = '<?php echo PH_PLUGIN_DIR; ?>';
 <script src="<?php echo PH_DIR; ?>/layout/js/common.js"></script>
 <script src="<?php echo PH_DIR; ?>/layout/js/global.js"></script>
 <script src="<?php echo PH_THEME_DIR; ?>/layout/js/layout.js"></script>
+<script src="<?php echo PH_PLUGIN_DIR; ?>/<?php echo PH_PLUGIN_CKEDITOR; ?>/ckeditor.js"></script>
 <?php
 //모듈별 JS
 foreach($MODULE as $key => $value){

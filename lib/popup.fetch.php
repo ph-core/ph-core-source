@@ -2,7 +2,7 @@
 use Corelib\Func;
 use Make\Database\Pdosql;
 
-class popup_fetch{
+class Popup_fetch{
 
     public function _init(){
         $this->_make();

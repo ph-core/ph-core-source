@@ -20,7 +20,7 @@
 #board-cat ul > li:hover a{border-color: #f1f1f1;background: #ffffff;color: #666666;}
 
 #board-list table{width: 100%;background: #ffffff;border-top: 2px solid #333333;}
-#board-list table tr > *{padding: 15px 12px;border: 1px solid #f1f1f1;border-top: none;transition: all 0.3s;}
+#board-list table tr > *{padding: 15px 12px;border: 1px solid #f1f1f1;border-top: none;transition: background 0.3s;}
 #board-list table thead th{font-weight: normal;color: #000000;padding: 15px 0;}
 #board-list table tbody td{text-align: center;}
 #board-list table tbody tr:hover > *{background: #f7f7f7;}
@@ -69,7 +69,7 @@
 #board-view .article .nostyle p{margin: 30px 0;}
 #board-view .article img{max-width: 800px !important;height: auto !important;}
 #board-view .img-wrap{margin-bottom: 50px;text-align: center;}
-#board-view .fileinfo a{display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+#board-view .fileinfo a{display: inline-block;vertical-align: middle;width: 500px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 #board-view .fileinfo .byte,
 #board-view .fileinfo .cnt{font-size: 11px;color: #999999;margin-left: 10px;}
 #board-view .drop-box{display: block;text-align: center;padding: 20px 10px;background: #fde8e9;border: 1px solid #f4cdcf;border-radius: 3px;font-size: 12px;line-height: 16px;color: #5b5252;}
@@ -93,22 +93,22 @@
 
 #comm-form{border: 1px solid #dddddd;padding: 10px;margin-bottom: 15px;border-radius: 5px;background: #f7f7f7;box-shadow: 0 0 20px rgba(0,0,0,0.05);}
 #comm-form .gue-writer{margin-bottom: 5px;}
-#comm-form .gue-capcha{margin-top: 5px;}
-#comm-form .gue-capcha .tbltxt{display: inline-block;margin-left: 5px;}
+#comm-form .gue-captcha{margin-top: 5px;}
+#comm-form .gue-captcha .tbltxt{display: inline-block;margin-left: 5px;}
 #comm-form fieldset{position: relative;padding-right: 150px;}
 #comm-form fieldset textarea{min-height: 130px;border-color: #eeeeee;}
 #comm-form fieldset .sbm{position: absolute;top: 0;right: 0;width: 145px;height: 130px;}
 
 #comm-re-form{display: none;position: relative;padding:0 20px 20px 40px;background: #f7f7f7;}
-#comm-re-form .gue-capcha{margin-top: 5px;}
-#comm-re-form .gue-capcha .tbltxt{display: inline-block;margin-left: 5px;vertical-align: top;}
+#comm-re-form .gue-captcha{margin-top: 5px;}
+#comm-re-form .gue-captcha .tbltxt{display: inline-block;margin-left: 5px;vertical-align: top;}
 #comm-re-form .rep-ico{position: absolute;top: 5px;left: 20px;width: 13px;height: 13px;}
 #comm-re-form .gue-writer{margin-bottom: 5px;}
 #comm-re-form fieldset{position: relative;padding-right: 150px;}
 #comm-re-form fieldset textarea{min-height: 130px;}
 #comm-re-form fieldset .re_sbm{position: absolute;top: 0;right: 0;width: 145px;height: 130px;}
-#comm-re-form #capcha,
-#comm-re-form #re-capcha{vertical-align: top;height: 25px;padding: 0 5px;width: 70px;}
+#comm-re-form #captcha,
+#comm-re-form #re-captcha{vertical-align: top;height: 25px;padding: 0 5px;width: 70px;}
 
 #comm-list{}
 #comm-list > li{position: relative;border: 1px solid rgba(0,0,0,0.1);box-shadow: 0 1px 3px rgba(0,0,0,0.1);margin: 10px 0;}

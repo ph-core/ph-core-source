@@ -1,5 +1,6 @@
 <?php
 use Corelib\Method;
+use Corelib\Func;
 use Corelib\Valid;
 use Make\Database\Pdosql;
 use Module\Board\Library as Board_Library;
@@ -33,8 +34,6 @@ class Submit{
     public function _make(){
         global $MB,$req,$boardconf,$board_id;
 
-        include_once PH_PLUGIN_PATH.'/capcha/zmSpamFree.php';
-
         $sql = new Pdosql();
 
         $sql->scheme('Module\\Board\\Scheme');
@@ -43,7 +42,7 @@ class Submit{
 
         Method::security('REFERER');
         Method::security('REQUEST_POST');
-        $req = Method::request('POST','mode,board_id,read,cidx,writer,comment,capcha,re_writer,re_comment,re_capcha,cmt_1,cmt_2,cmt_3,cmt_4,cmt_5,cmt_6,cmt_7,cmt_8,cmt_9,cmt_10');
+        $req = Method::request('POST','mode,board_id,read,cidx,writer,comment,captcha,re_writer,re_comment,re_captcha,cmt_1,cmt_2,cmt_3,cmt_4,cmt_5,cmt_6,cmt_7,cmt_8,cmt_9,cmt_10');
 
         $board_id = $req['board_id'];
 
@@ -90,12 +89,12 @@ class Submit{
             $mb_idx = '';
             Valid::isnick('writer',$req['writer'],1,'');
             $writer = $req['writer'];
-            if(zsfCheck($req['capcha'],'')!=true){
+            if(!Func::chk_captcha($req['captcha'])){
                 Valid::set(
                     array(
                         'return' => 'error',
-                        'input' => 'capcha',
-                        'err_code' => 'NOTMATCH_CAPCHA'
+                        'input' => 'captcha',
+                        'err_code' => 'NOTMATCH_CAPTCHA'
                     )
                 );
                 Valid::success();
@@ -149,12 +148,12 @@ class Submit{
         }else{
             $mb_idx = '';
             Valid::isnick('re_writer',$req['re_writer'],1,'');
-            if(zsfCheck($req['re_capcha'],'')!=true){
+            if(!Func::chk_captcha($req['re_captcha'])){
                 Valid::set(
                     array(
                         'return' => 'error',
-                        'input' => 're_capcha',
-                        'err_code' => 'NOTMATCH_CAPCHA'
+                        'input' => 're_captcha',
+                        'err_code' => 'NOTMATCH_CAPTCHA'
                     )
                 );
                 Valid::success();

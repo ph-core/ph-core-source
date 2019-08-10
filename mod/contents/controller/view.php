@@ -34,8 +34,6 @@ class View extends \Controller\Make_Controller{
 
         $print_arr = $sql->fetchs();
 
-        Func::add_stylesheet(PH_PLUGIN_DIR.'/'.PH_PLUGIN_CKEDITOR.'/contents_view.css');
-
         echo '<div id="mod-contents-wrap" class="nostyle">'.PHP_EOL;
 
         if(Func::chkdevice()=='mobile' && $print_arr['use_mo_html']=='Y' && $CONF['use_mobile']=='Y'){

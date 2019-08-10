@@ -2,7 +2,7 @@
 use Corelib\Func;
 use Make\Database\Pdosql;
 
-class banner_fetch{
+class Banner_fetch{
 
     public function _init(){
         $this->_make();

@@ -72,5 +72,5 @@ ini_set('display_errors',1);
 // Ph-Core 플러그인 상수
 // define('플러그인 상수명','플러그인 폴더명');
 //////////////////////////////
-define('PH_PLUGIN_CAPCHA','capcha');
+define('PH_PLUGIN_CAPTCHA','captcha');
 define('PH_PLUGIN_CKEDITOR','ckeditor4');

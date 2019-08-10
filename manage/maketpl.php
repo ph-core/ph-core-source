@@ -22,8 +22,6 @@ class Maketpl extends \Controller\Make_Controller{
     public function _make(){
         $manage = new Manage();
 
-        Func::add_javascript(PH_PLUGIN_DIR.'/'.PH_PLUGIN_CKEDITOR.'/ckeditor.js');
-
         $this->set('manage',$manage);
     }
 

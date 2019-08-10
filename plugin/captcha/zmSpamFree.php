@@ -9,8 +9,8 @@ if(DEFINED("PH_PATH")){
 }
 
 
-if ( !is_dir(logdir.'capchaLog') ) { mkdir ( logdir.'capchaLog', 0755 ); chmod( logdir.'capchaLog', 0755); }
-if ( !is_dir(logdir.'capchaLog/Connect') ) { mkdir ( logdir.'capchaLog/Connect', 0755 ); chmod( logdir.'capchaLog/Connect', 0755); }
+if ( !is_dir(logdir.'captchaLog') ) { mkdir ( logdir.'captchaLog', 0755 ); chmod( logdir.'captchaLog', 0755); }
+if ( !is_dir(logdir.'captchaLog/Connect') ) { mkdir ( logdir.'captchaLog/Connect', 0755 ); chmod( logdir.'captchaLog/Connect', 0755); }
 
 if ( isset( $_COOKIE['PHPSESSID']) ) { DEFINE ( 'zsfSessId', $_COOKIE['PHPSESSID'] ); }
 # 함수 : 에러메시지 출력
@@ -108,8 +108,8 @@ if ( isset($_GET['zsfimg']) ) {
 		$thisZsfCfg['mi'] = array('는','은');
 	}
 	# Log/Connect/ 디렉토리에 세션파일이 등록되어 있을 경우 INCLUDE, 아닐 경우 문제&답 만들기
-	if ( defined('zsfSessId') && is_file( logdir.'capchaLog/Connect/'.zsfSessId.'.php' ) && !isset($_GET['re']) && !isset($_GET['cfg']) ) {
-		include logdir.'capchaLog/Connect/'.zsfSessId.'.php';
+	if ( defined('zsfSessId') && is_file( logdir.'captchaLog/Connect/'.zsfSessId.'.php' ) && !isset($_GET['re']) && !isset($_GET['cfg']) ) {
+		include logdir.'captchaLog/Connect/'.zsfSessId.'.php';
 	}
 	else {
 		# 경우에 따라 문제 만들기
@@ -231,13 +231,13 @@ if ( isset($_GET['zsfimg']) ) {
 			zsfErr('Directory <span style="color: #c00; font-weight: bold">'.$dir.'</span> must be 755 permission.',50);
 		}
 	}
-	zsfDirChk (logdir.'capchaLog/Connect');
+	zsfDirChk (logdir.'captchaLog/Connect');
 	# 세션 파일 저장
-	$zsfFp = fopen(logdir.'capchaLog/Connect/'.zsfSessId.'.php', 'w+');
+	$zsfFp = fopen(logdir.'captchaLog/Connect/'.zsfSessId.'.php', 'w+');
 	fwrite ($zsfFp, '<?php $zsfQ=\''.$zsfQ.'\'; $zsfA=\''.$zsfA.'\'; $zsfN=\''.$zsfN.'\';?>');
 	fclose($zsfFp);
 	# Passed, Denied 디렉토리 존재여부 체크 및 권한 체크
-	zsfCleanFile ( logdir.'capchaLog/Connect/', 1 );
+	zsfCleanFile ( logdir.'captchaLog/Connect/', 1 );
 	/*
 		이미지 출력
 	*/
@@ -344,7 +344,7 @@ else
 		if ( isset($zsfCfg['logPassed']) && isset($zsfCfg['logDenied']) ) { $thisZsfCfg['Passed'] = $zsfCfg['Passed']; $thisZsfCfg['Denied'] = $zsfCfg['Denied']; }
 		# 함수 : 로깅 및 이전 데이터 삭제
 		function zsfLog ( $zsfLogFile,  $zsfQ, $zsfA, $zsfCode, $zsfMethod, $zsfLog, $zsfTerm ) {
-			$zsfLogFile = logdir.'capchaLog/'.$zsfLogFile.'.php';
+			$zsfLogFile = logdir.'captchaLog/'.$zsfLogFile.'.php';
 			$zsfLogDataArr = array ();
 			$i = 0;
 			if ( is_file($zsfLogFile) ) {
@@ -364,10 +364,10 @@ else
 			fclose($zsfFp);
 		}
 		# 세션파일 있을 경우 INCLUDE
-		if ( defined( 'zsfSessId' ) && is_file( logdir.'capchaLog/Connect/'.zsfSessId.'.php' ) ) {
-			include logdir.'capchaLog/Connect/'.zsfSessId.'.php';
+		if ( defined( 'zsfSessId' ) && is_file( logdir.'captchaLog/Connect/'.zsfSessId.'.php' ) ) {
+			include logdir.'captchaLog/Connect/'.zsfSessId.'.php';
 			if ( $zsfMethod == 'POST' ) {
-				unlink ( logdir.'capchaLog/Connect/'.zsfSessId.'.php' );
+				unlink ( logdir.'captchaLog/Connect/'.zsfSessId.'.php' );
 			}
 		}
 		# 보안코드 입력값의 참, 거짓 검증
@@ -376,8 +376,8 @@ else
 			$zsfR = true;
 		}
 		else {
-			if ( defined( 'zsfSessId' ) && is_file( logdir.'capchaLog/Connect/'.zsfSessId.'.php' ) ) {
-				unlink ( logdir.'capchaLog/Connect/'.zsfSessId.'.php' );
+			if ( defined( 'zsfSessId' ) && is_file( logdir.'captchaLog/Connect/'.zsfSessId.'.php' ) ) {
+				unlink ( logdir.'captchaLog/Connect/'.zsfSessId.'.php' );
 			}
 		}
 		$zsfRTxt = $zsfR ? 'Passed' : 'Denied';

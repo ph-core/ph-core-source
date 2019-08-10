@@ -34,8 +34,6 @@ class Submit{
     public function _make(){
         global $MB,$boardconf,$req,$ufile,$wr_opt,$org_arr,$board_id;
 
-        include_once PH_PLUGIN_PATH.'/capcha/zmSpamFree.php';
-
         $boardlib = new Board_Library();
         $uploader = new Uploader();
         $imgresize = new Imgresize();
@@ -45,7 +43,7 @@ class Submit{
 
         Method::security('REFERER');
         Method::security('REQUEST_POST');
-        $req = Method::request('POST','thisuri,board_id,wrmode,read,page,where,keyword,category_ed,use_html,category,use_notice,use_secret,use_email,writer,password,email,subject,article,file1_del,file2_del,capcha,data_1,data_2,data_3,data_4,data_5,data_6,data_7,data_8,data_9,data_10');
+        $req = Method::request('POST','thisuri,board_id,wrmode,read,page,where,keyword,category_ed,use_html,category,use_notice,use_secret,use_email,writer,password,email,subject,article,file1_del,file2_del,captcha,data_1,data_2,data_3,data_4,data_5,data_6,data_7,data_8,data_9,data_10');
         $f_req = Method::request('FILE','file1,file2');
 
         $board_id = $req['board_id'];
@@ -118,12 +116,12 @@ class Submit{
             if($wr_opt['email']=='Y'){
                 Valid::isemail('email',$req['email'],1,'');
             }
-            if(zsfCheck($req['capcha'],'')!=true){
+            if(!Func::chk_captcha($req['captcha'])){
                 Valid::set(
                     array(
                         'return' => 'error',
-                        'input' => 'capcha',
-                        'err_code' => 'NOTMATCH_CAPCHA'
+                        'input' => 'captcha',
+                        'err_code' => 'NOTMATCH_CAPTCHA'
                     )
                 );
                 Valid::success();

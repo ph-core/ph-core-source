@@ -56,7 +56,7 @@ class Imgresize{
     }
 
     public function make(){
-        $this->get_filetype();
+        $this->type = Func::get_filetype($this->orgimg);
         $this->make_tmporg();
         $this->make_resampled();
 

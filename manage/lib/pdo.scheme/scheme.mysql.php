@@ -84,7 +84,7 @@ class Scheme extends \Make\Database\Pdosql{
                 UPDATE
                 {$this->table("siteconfig")}
                 SET
-                st_title=:col1,st_domain=:col2,st_description=:col3,st_use_mobile=:col4,st_use_emailchk=:col5,st_email=:col6,st_tel=:col7,st_favicon=:col8,st_logo=:col9,st_mb_division=:col10,st_use_smtp=:col11,st_smtp_server=:col12,st_smtp_port=:col13,st_smtp_id=:col14,st_smtp_pwd=:col15,st_privacy=:col16,st_policy=:col17,st_1=:col18,st_2=:col19,st_3=:col20,st_4=:col21,st_5=:col22,st_6=:col23,st_7=:col24,st_8=:col25,st_9=:col26,st_10=:col27,st_exp=:col28
+                st_title=:col1,st_domain=:col2,st_description=:col3,st_use_mobile=:col4,st_use_emailchk=:col5,st_use_recaptcha=:col6,st_recaptcha_key1=:col7,st_recaptcha_key2=:col8,st_email=:col9,st_tel=:col10,st_favicon=:col11,st_logo=:col12,st_mb_division=:col13,st_use_smtp=:col14,st_smtp_server=:col15,st_smtp_port=:col16,st_smtp_id=:col17,st_smtp_pwd=:col18,st_privacy=:col19,st_policy=:col20,st_1=:col21,st_2=:col22,st_3=:col23,st_4=:col24,st_5=:col25,st_6=:col26,st_7=:col27,st_8=:col28,st_9=:col29,st_10=:col20,st_exp=:col31
             ";
         }
 

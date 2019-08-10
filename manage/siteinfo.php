@@ -65,7 +65,7 @@ class Siteinfo extends \Controller\Make_Controller{
 
         $sql->scheme('Manage\\Scheme');
 
-        $manage->make_target('사이트 기본 정보|정책 및 약관|외부 메일서버 설정|여분필드');
+        $manage->make_target('사이트 기본 정보|기본 플러그인 사용 설정|정책 및 약관|외부 메일서버 설정|여분필드');
 
         $sql->query(
             $sql->scheme->siteinfo('select:siteinfo'),''
@@ -104,6 +104,7 @@ class Siteinfo extends \Controller\Make_Controller{
         $this->set('print_target',$manage->print_target());
         $this->set('use_mobile',set_checked($arr,'st_use_mobile'));
         $this->set('use_emailchk',set_checked($arr,'st_use_emailchk'));
+        $this->set('use_recaptcha',set_checked($arr,'st_use_recaptcha'));
         $this->set('use_smtp',set_checked($arr,'st_use_smtp'));
         $this->set('logo_src',logo_src($arr));
         $this->set('favicon_src',favicon_src($arr));

@@ -173,6 +173,56 @@
         <table class="table1">
             <thead>
                 <tr>
+                    <th colspan="2" class="tal">기본 플러그인 사용 설정</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Google reCAPTCHA v2</th>
+                    <td>
+                        <table class="table2">
+                            <tbody>
+                                <tr>
+                                    <th>사용 유무</th>
+                                    <td>
+                                        <label class="mr10"><input type="radio" name="use_recaptcha" value="Y" <?php echo $use_recaptcha['Y']; ?> /> 사용</label>
+                                        <label><input type="radio" name="use_recaptcha" value="N" <?php echo $use_recaptcha['N']; ?> /> 사용안함</label>
+                                        <span class="tbl_sment">
+                                            Ph-Core의 기본 'Captcha' 대신 Google 'reCAPTCHA'를 사용하려면 체크 합니다.<br />
+                                            reCAPTCHA는 공식 웹사이트에서 KEY 발급 후 사용 가능합니다.
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Site key</th>
+                                    <td>
+                                        <input type="text" name="recaptcha_key1" class="inp w50p" title="reCAPTCHA Site key" value="<?php echo $write['st_recaptcha_key1']; ?>" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Secret key</th>
+                                    <td>
+                                        <input type="text" name="recaptcha_key2" class="inp w50p" title="reCAPTCHA Secret key" value="<?php echo $write['st_recaptcha_key2']; ?>" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="btn-wrap">
+            <div class="center">
+                <button type="submit" class="btn1"><i class="fa fa-check"></i> 변경완료</button>
+            </div>
+        </div>
+
+        <?php echo $print_target[2]; ?>
+
+        <table class="table1">
+            <thead>
+                <tr>
                     <th colspan="2" class="tal">정책 및 약관</th>
                 </tr>
             </thead>
@@ -198,7 +248,7 @@
             </div>
         </div>
 
-        <?php echo $print_target[2]; ?>
+        <?php echo $print_target[3]; ?>
 
         <table class="table1">
             <thead>
@@ -247,7 +297,7 @@
             </div>
         </div>
 
-        <?php echo $print_target[3]; ?>
+        <?php echo $print_target[4]; ?>
 
         <table class="table1">
             <thead>

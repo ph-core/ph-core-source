@@ -23,11 +23,8 @@
 		</fieldset>
 
 		<?php if($is_guest_form_show){ ?>
-		<div class="gue-capcha">
-			<?php include PH_PLUGIN_PATH."/".PH_PLUGIN_CAPCHA."/getimg.php"; ?>
-			<span class="tbltxt">
-				· 스팸방지 코드를 입력란에 입력해 주세요.
-			</span>
+		<div class="gue-captcha">
+			<?php echo $captcha; ?>
 		</div>
 		<?php } ?>
 
@@ -79,14 +76,8 @@
 		</fieldset>
 
 		<?php if($is_guest_form_show){ ?>
-		<div class="gue-capcha">
-			<?php
-				$PLUGIN_CAPCHA_CONF['id'] = "re_capcha";
-				include PH_PLUGIN_PATH."/".PH_PLUGIN_CAPCHA."/getimg.php";
-			?>
-			<span class="tbltxt">
-				· 스팸방지 코드를 입력란에 입력해 주세요.
-			</span>
+		<div class="gue-captcha">
+			<?php echo $re_captcha; ?>
 		</div>
 		<?php } ?>
 	</div>

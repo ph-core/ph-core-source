@@ -49,8 +49,6 @@ class Sendmail extends \Controller\Make_Controller{
 
         $req = Method::request('GET','mailto');
 
-        Func::add_javascript(PH_PLUGIN_DIR.'/'.PH_PLUGIN_CKEDITOR.'/ckeditor.js');
-
         $this->set('manage',$manage);
         $this->set('mailto',$req['mailto']);
         $this->set('tpl_opts',tpl_opts());

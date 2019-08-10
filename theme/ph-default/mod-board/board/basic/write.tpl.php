@@ -133,14 +133,11 @@
 				</tr>
 				<? } ?>
 
-				<?php if($is_capcha_show){ ?>
+				<?php if($is_captcha_show){ ?>
 				<tr>
-					<th>스팸방지 코드</th>
+					<th>스팸방지</th>
 					<td>
-						<?php include PH_PLUGIN_PATH."/".PH_PLUGIN_CAPCHA."/getimg.php"; ?>
-						<span class="tbltxt">
-							· 스팸방지 코드를 입력란에 입력해 주세요.
-						</span>
+						<?php echo $captcha; ?>
 					</td>
 				</tr>
 				<? } ?>

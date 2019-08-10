@@ -71,8 +71,8 @@ valid = {
 		if($.trim(opt.err_code)=='ERR_NULL'){
 			alert(inp_tit+' : 입력해 주세요.');
 
-		}else if($.trim(opt.err_code)=='NOTMATCH_CAPCHA'){
-			alert('스팸방지 코드가 올바르지 않습니다.');
+		}else if($.trim(opt.err_code)=='NOTMATCH_CAPTCHA'){
+			alert('Captcha(스팸방지)가 올바르지 않습니다.');
 
 		}else if($.trim(opt.msg)!=''){
 			alert(opt.msg);
@@ -83,7 +83,7 @@ valid = {
 		if(opt.input){
 			$inp.focus();
 		}
-		$('.plugin-capcha-img').attr('src',PH_PLUGIN_DIR+'/capcha/zmSpamFree.php?re&zsfimg='+new Date().getTime());
+		$('.plugin-captcha-img').attr('src',PH_PLUGIN_DIR+'/captcha/zmSpamFree.php?re&zsfimg='+new Date().getTime());
 	},
 
 	'success' : function($form,success,opt){
@@ -169,22 +169,53 @@ function ckeEditor_action(){
 	})
 }
 
+//Plugin : Captcha
+captcha_reload = {
+	'init' : function(){
+		this.action();
+	},
+	'action' : function(){
+		$('.plugin-captcha-img').attr({
+			'src' : PH_PLUGIN_DIR+'/captcha/zmSpamFree.php?re&zsfimg='+new Date().getTime()
+		});
+	}
+}
+function captcha_action(){
+    if($('.g-recaptcha').length>0){
+        $('.g-recaptcha').each(function(){
+            var $tar_ele = $('#'+$(this).data('name'));
+            var org_val = $(this).find('textarea').val();
+            $tar_ele.val(org_val);
+        })
+    }
+}
+$(function(){
+	$(document).on('click','.plugin-captcha-img',function(e){
+		e.preventDefault();
+		captcha_reload.init();
+	});
+});
+
 //Ajax Submit
 ajaxSubmit = {
 	'init' : function($form){
 		this.action($form);
 	},
 	'action' : function($form){
+        ckeEditor_action();
+        captcha_action();
+
 		var ajaxAction = $form.attr('ajax-action');
 
         $.ajax({
             'type' : 'POST',
             'url' : ajaxAction,
             'cache' : false,
+            'async' : true,
             'data' : $form.serialize(),
             'dataType' : 'html',
             'beforeSend' : function(){
-                ckeEditor_action();
+
                 $form.find('button,:button').attr('disabled',true);
             },
             'success' : function(data){
@@ -202,17 +233,17 @@ ajaxFileSubmit = {
 		this.action($form);
 	},
 	'action' : function($form){
-		var ajaxAction = $form.attr('ajax-action');
+        ckeEditor_action();
+        captcha_action();
 
-		ckeEditor_action();
+		var ajaxAction = $form.attr('ajax-action');
 
 		ajaxFileSubmit_val = true;
 		$form.attr('action',ajaxAction);
 		$form.ajaxForm({
-			cache		:	false,
-			async		:	false,
-			type		:	'POST',
-			dataType	:	'HTML',
+			'cache' : false,
+			'type' : 'POST',
+			'dataType' : 'HTML',
 			'beforeSend' : function(){
 				$form.find('button,:button').attr('disabled',true);
 			},
@@ -255,24 +286,6 @@ setAjaxForm = {
 }
 $(function(){
 	setAjaxForm.init();
-});
-
-//Capcha reload
-capcha_reload = {
-	'init' : function(){
-		this.action();
-	},
-	'action' : function(){
-		$('.plugin-capcha-img').attr({
-			'src' : PH_PLUGIN_DIR+'/capcha/zmSpamFree.php?re&zsfimg='+new Date().getTime()
-		});
-	}
-}
-$(function(){
-	$(document).on('click','.plugin-capcha-img',function(e){
-		e.preventDefault();
-		capcha_reload.init();
-	});
 });
 
 //Cookie
