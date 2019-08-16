@@ -60,7 +60,7 @@ class Scheme extends \Make\Database\Pdosql{
                 (
                     SELECT COUNT(*)
                     FROM {$this->table("mod:board_like")}
-                    WHERE id=:col1 AND data_idx=board.idx AND likes>0
+                    WHERE id='$board_id' AND data_idx=board.idx AND likes>0
                 ) likes_cnt,
                 (
                     SELECT COUNT(*)
@@ -84,7 +84,7 @@ class Scheme extends \Make\Database\Pdosql{
                 (
                     SELECT COUNT(*)
                     FROM {$this->table("mod:board_like")}
-                    WHERE id=:col1 AND data_idx=board.idx AND likes>0
+                    WHERE id='$board_id' AND data_idx=board.idx AND likes>0
                 ) likes_cnt,
                 (
                     SELECT COUNT(*)

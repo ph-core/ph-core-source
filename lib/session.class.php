@@ -85,6 +85,7 @@ class SessionHandler extends \Make\Database\Pdosql{
             );
             return $this->fetch('value');
         }
+        return true;
     }
 
     public function write($key,$val){
@@ -113,6 +114,7 @@ class SessionHandler extends \Make\Database\Pdosql{
                 )
             );
         }
+        return true;
     }
 
     public function destroy($key){
@@ -123,6 +125,7 @@ class SessionHandler extends \Make\Database\Pdosql{
                 $key
             )
         );
+        return true;
     }
 
     public function gc(){
@@ -131,6 +134,7 @@ class SessionHandler extends \Make\Database\Pdosql{
             $this->scheme->core('gc:session'),
             ''
         );
+        return true;
     }
 
 }

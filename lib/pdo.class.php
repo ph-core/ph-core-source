@@ -70,16 +70,20 @@ class Pdosql{
     //Query
     public function query($query,$param){
         $this->stmt = $this->pdo->prepare($query);
-        for($i=1;$i<=count($param);$i++){
-            $this->stmt->bindParam(':col'.$i,$param[$i-1]);
+
+        if(is_array($param)){
+            for($i=1;$i<=count($param);$i++){
+                $this->stmt->bindParam(':col'.$i,$param[$i-1]);
+            }
         }
+
         $this->stmt->execute();
         $this->REC_COUNT = $this->stmt->rowCount();
         if(
-        strpos(strtolower($query),'select')!==false &&
-        (
-            strpos(strtolower($query),'insert')===false &&
-            strpos(strtolower($query),'update')===false
+            strpos(strtolower($query),'select')!==false &&
+            (
+                strpos(strtolower($query),'insert')===false &&
+                strpos(strtolower($query),'update')===false
             )
         ){
             $this->ROW = $this->stmt->fetch(\PDO::FETCH_ASSOC);
