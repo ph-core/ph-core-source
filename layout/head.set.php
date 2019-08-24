@@ -39,7 +39,6 @@ if($use_respd===true){
 <?php if($CONF['google_verific']){ ?>
 <meta name="google-site-verification" content="<?php echo $CONF['google_verific']; ?>" />
 <?php } ?>
-<meta name="EnlighterJS" content="Advanced javascript based syntax highlighting" data-indent="4" data-selector-block="pre" data-selector-inline="code" data-language="javascript" />
 <?php
 if($CONF['meta']){
   echo $CONF['meta'].PHP_EOL;
