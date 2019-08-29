@@ -147,10 +147,11 @@ class Pdosql{
 
     //레코드의 모든 필드 값을 배열로 가져옴
     public function fetchs(){
+        $array = array();
         foreach($this->ROW as $key => $value){
-            $this->array[$key] = stripslashes($this->fetch($key));
+            $array[$key] = stripslashes($this->fetch($key));
         }
-        return $this->array;
+        return $array;
     }
 
     //여분필드 설명 처리
