@@ -193,10 +193,8 @@ class View extends \Controller\Make_Controller{
         $arr = $sql->fetchs();
         $sql->specialchars = 0;
         $sql->nl2br = 0;
+
         $arr['article'] = $sql->fetch('article');
-        foreach($sql->array as $key => $value){
-            $boardconf[$key] = $value;
-        }
 
         //captcha 시작 (코멘트에 captcha 노출하기 위해 view 에서 미리 js로드)
         Func::get_captcha('captcha',0);

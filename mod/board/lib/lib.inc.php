@@ -41,9 +41,7 @@ class Library{
         $sql->specialchars = 1;
         $sql->nl2br = 1;
 
-        foreach($sql->array as $key => $value){
-            $conf[$key] = $value;
-        }
+        $conf = $sql->fetchs();
 
         if($CONF['use_mobile']=='Y' && Func::chkdevice()=='mobile'){
             $ex_slt = 1;

@@ -36,8 +36,7 @@ class Ctrpop extends \Controller\Make_Controller{
 
             $opt = '';
             do{
-                $sql->fetchs('id,title');
-                $arr = $sql->array;
+                $arr = $sql->fetchs();
                 $opt .= '<option value="'.$arr['id'].'">'.$arr['title'].'('.$arr['id'].')</option>';
             }while($sql->nextRec());
 
