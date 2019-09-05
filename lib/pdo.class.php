@@ -148,6 +148,9 @@ class Pdosql{
     //레코드의 모든 필드 값을 배열로 가져옴
     public function fetchs(){
         $array = array();
+        if(!$this->ROW){
+            return false;
+        }
         foreach($this->ROW as $key => $value){
             $array[$key] = stripslashes($this->fetch($key));
         }

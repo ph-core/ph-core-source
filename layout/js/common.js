@@ -212,7 +212,7 @@ ajaxSubmit = {
             'url' : ajaxAction,
             'cache' : false,
             'async' : true,
-            'data' : $form.serialize(),
+            'data' : $form.find('input, select, textarea').serialize(),
             'dataType' : 'html',
             'beforeSend' : function(){
 

@@ -83,14 +83,13 @@ class Paging extends \Make\Database\Pdosql{
 
     //페이징 출력
     public function pagingprint($addParam){
-        $func = new Func();
         if(isset($addParam)){
             $this->setparam($addParam);
         }
         if($this->thispage){
             $thispage = $this->thispage;
         }else{
-            $thispage = $func->thisuri();
+            $thispage = Func::thisuri();
         }
         if($this->total>0){
             $this->setnav();

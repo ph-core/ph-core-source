@@ -249,7 +249,7 @@ class Func{
 
         if($CONF['use_recaptcha']=='Y'){
             self::add_javascript('https://www.google.com/recaptcha/api.js?onload=g_recaptcha_'.$id.'&render=explicit');
-            self::print_javascript('var g_recaptcha_'.$id.'_act = 0;var g_recaptcha_'.$id.'_aload = '.$type.';var g_recaptcha_'.$id.'_rend;var g_recaptcha_'.$id.' = function(aload){if(g_recaptcha_'.$id.'_aload==1 || aload==1){g_recaptcha_'.$id.'_rend = grecaptcha.render(\'g-recaptcha-'.$id.'\',{\'sitekey\' : \''.$CONF['recaptcha_key1'].'\'});}g_recaptcha_'.$id.'_act++;}');
+            self::print_javascript('var g_recaptcha_'.$id.'_act = 0;var g_recaptcha_'.$id.'_aload = '.$type.';var g_recaptcha_'.$id.'_rend;var g_recaptcha_'.$id.' = function(aload){if((g_recaptcha_'.$id.'_aload==1 || aload==1) && document.getElementById(\'g-recaptcha-'.$id.'\')){g_recaptcha_'.$id.'_rend = grecaptcha.render(\'g-recaptcha-'.$id.'\',{\'sitekey\' : \''.$CONF['recaptcha_key1'].'\'});}g_recaptcha_'.$id.'_act++;}');
             $html = '<div class="g-recaptcha" id="g-recaptcha-'.$id.'" data-name="'.$id.'"></div>';
             $html .= '<textarea name="'.$id.'" id="'.$id.'" style="display: none;"></textarea>';
         }else{
