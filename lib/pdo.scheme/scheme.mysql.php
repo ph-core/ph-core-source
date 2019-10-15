@@ -3,6 +3,9 @@ namespace Core;
 
 class Scheme extends \Make\Database\Pdosql{
 
+    public $where = '';
+    public $orderby = '';
+
     public function layout($type){
 
         if($type=="select:cat_caidx"){
@@ -98,7 +101,7 @@ class Scheme extends \Make\Database\Pdosql{
                 INSERT INTO {$this->table("session")}
                 (sesskey,expiry,value,mb_idx,ip,regdate)
                 VALUES
-                (:col1,:col2,'','',:col3,now())
+                (:col1,:col2,'',0,:col3,now())
             ";
         }
 
