@@ -5,6 +5,7 @@ class Scheme extends \Make\Database\Pdosql{
 
     public $where = '';
     public $orderby = '';
+    public $value = '';
 
     public function layout($type){
 
