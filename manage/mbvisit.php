@@ -137,7 +137,7 @@ class Mbvisit extends \Controller\Make_Controller{
 
         $sql->scheme('Manage\\Scheme');
 
-        $req = Method::request('GET','fdate,tdate');
+        $req = Method::request('GET','nowdate,fdate,tdate');
 
         //date sortby
         if(!$req['fdate']){
@@ -167,6 +167,9 @@ class Mbvisit extends \Controller\Make_Controller{
         if(!$PARAM['ordtg']) $PARAM['ordtg'] = 'regdate';
         if(!$PARAM['ordsc']) $PARAM['ordsc'] = 'desc';
         $orderby = $PARAM['ordtg'].' '.$PARAM['ordsc'];
+        $PARAM[0]['fdate'] = $req['fdate'];
+        $PARAM[0]['tdate'] = $req['tdate'];
+        $PARAM[0]['nowdate'] = $req['nowdate'];
 
         //list
         $paging->thispage = PH_MANAGE_DIR.'/';

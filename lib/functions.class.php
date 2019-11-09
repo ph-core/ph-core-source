@@ -1,7 +1,6 @@
 <?php
 namespace Corelib;
 
-use Make\Database\Sqlconn;
 use Make\Database\Pdosql;
 
 class Func{

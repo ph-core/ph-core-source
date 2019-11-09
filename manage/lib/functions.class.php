@@ -71,7 +71,13 @@ class Func{
         }else{
             $sch = '';
         }
-        return $this->sortlink('&sort='.$PARAM['sort'].'&ordtg='.$tg.'&ordsc='.$sc.$sch);
+        $etc_var = '';
+        if(isset($PARAM[0])){
+            foreach($PARAM[0] as $key=>$value){
+                $etc_var .= '&'.$key.'='.$value;
+            }
+        }
+        return $this->sortlink('&sort='.$PARAM['sort'].'&ordtg='.$tg.'&ordsc='.$sc.$sch.$etc_var);
     }
 
     public function pag_def_param(){
