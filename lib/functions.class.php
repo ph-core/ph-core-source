@@ -294,7 +294,7 @@ class Func{
 
     //현재 PHP 경로(Directory) 반환
     static public function thisdir(){
-        return str_replace('/'.basename($_SERVER['REQUEST_URI']),'',$_SERVER['REQUEST_URI']);
+        return str_replace('/'.basename(self::thisuri()),'',self::thisuri());
     }
 
     //현재 PHP uri 제외한 전체 경로 반환
@@ -307,6 +307,12 @@ class Func{
         $uri = $_SERVER['REQUEST_URI'];
         $qry = substr($_SERVER['QUERY_STRING'],strpos($_SERVER['QUERY_STRING'],'&')+1);
         $uri = str_replace('?'.$qry,'',$uri);
+        return $uri;
+    }
+
+    //현재 URI 반환 (쿼리 포함)
+    static public function thisuriqry(){
+        $uri = $_SERVER['REQUEST_URI'];
         return $uri;
     }
 

@@ -25,10 +25,10 @@ class Pdosql{
                     $this->pdo = new \PDO(
                         'mysql:host='.self::$DB_HOST.';dbname='.self::$DB_NAME,self::$DB_USER,self::$DB_PWD,
                         array(
-                            \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+                            \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+                            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
                         )
                     );
-                    $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             }
         }
         catch(Exception $e){

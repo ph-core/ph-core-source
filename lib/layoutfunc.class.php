@@ -24,7 +24,10 @@ class Layout{
     }
 
     public function signin_href(){
-        $link = PH_DIR.'/member/signin?redirect='.Func::thisuri();
+        $link = PH_DIR.'/member/signin?redirect='.Func::thisuriqry();
+        if(Func::thisdir()=='/member'){
+            $link = PH_DIR.'/member/signin?redirect=/';
+        }
         return $link;
     }
 

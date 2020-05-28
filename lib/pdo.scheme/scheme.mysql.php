@@ -102,7 +102,7 @@ class Scheme extends \Make\Database\Pdosql{
                 INSERT INTO {$this->table("session")}
                 (sesskey,expiry,value,mb_idx,ip,regdate)
                 VALUES
-                (:col1,:col2,'',0,:col3,now())
+                (:col1,:col2,0,0,:col3,now())
             ";
         }
 

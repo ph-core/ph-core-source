@@ -41,7 +41,7 @@ a:active {text-decoration:none; color:#666666;}
 a:hover{text-decoration:underline; color:#000000;}
 
 /* Reset Webkit Browsers */
-*{ -webkit-text-size-adjust:none;-webkit-border-radius:0;-webkit-overflow-scrolling: touch;outline: none;touch-action: none; }
+*{ -webkit-text-size-adjust:none;-webkit-border-radius:0;-webkit-overflow-scrolling: touch;outline: none; }
 button,input[type=button],input[type=submit],input[type=image]{-webkit-appearance: none;}
 
 /* Remove Styles  */

@@ -27,7 +27,8 @@ function step1_chk(){
         phpversions()!==false &&
         extschk('GD')!==false &&
         extschk('mbstring')!==false &&
-        extschk('PDO')!==false
+        extschk('PDO')!==false &&
+        extschk('curl')!==false
     ){
         return true;
     }else{

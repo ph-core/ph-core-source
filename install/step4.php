@@ -5,7 +5,8 @@ use Corelib\Func;
 include_once './install.core.php';
 
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS']!=='off' || $_SERVER['SERVER_PORT']==443) ? 'https://' : 'http://';
-$realdir = str_replace($_SERVER['DOCUMENT_ROOT'],'',str_replace("/install/",'',str_replace(basename(__FILE__),'',realpath(__FILE__))));
+$realdir = str_replace($_SERVER['DOCUMENT_ROOT'],'',str_replace("\\",'/',str_replace(basename(__FILE__),'',realpath(__FILE__))));
+$realdir = str_replace('/install/','',$realdir);
 
 $req = Method::request('POST','engine,host,name,user,pwd,pfx');
 
@@ -29,15 +30,14 @@ if(!file_exists('../data/dbconn.temp.php')){
                 $pdo = new \PDO(
                     'mysql:host='.$req['host'].';dbname='.$req['name'],$req['user'],$req['pwd'],
                     array(
-                        \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+                        \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+                        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
                     )
                 );
-                $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-                break;
         }
     }
     catch(Exception $e){
-        Func::err_back('Database 접속에 실패했습니다.');
+        Func::err_location('Database 접속에 실패했습니다.','./');
     }
 
     include_once './scheme/core.'.$req['engine'].'.sql';

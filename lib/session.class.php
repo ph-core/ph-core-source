@@ -148,4 +148,6 @@ session_set_save_handler(
     array($sess_init,'destroy'),
     array($sess_init,'gc')
 );
-session_start();
+if(ini_get('session.auto_start')!=1){
+    session_start();
+}

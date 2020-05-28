@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS {$req['pfx']}session (
     idx int(11) NOT NULL auto_increment,
     sesskey text NOT NULL,
     expiry int(11) NOT NULL,
-    value text character set utf8,
+    value text,
     mb_idx int(11) default '0',
     ip varchar(255) default NULL,
     regdate datetime default NULL,

@@ -1,9 +1,12 @@
 <?php
-define('REAL_PATH',str_replace('/lib/','',str_replace(basename(__FILE__),'',realpath(__FILE__))));
+$REAL_PATH = str_replace('\\','/',str_replace(basename(__FILE__),'',realpath(__FILE__)));
+$REAL_PATH = str_replace('/lib/','',$REAL_PATH);
+define('REAL_PATH',$REAL_PATH);
 define('REAL_DIR',str_replace($_SERVER['DOCUMENT_ROOT'],'',REAL_PATH));
 
 if(!file_exists(REAL_PATH.'/data/dbconn.set.php')){
     echo '<script type="text/javascript">location.href=\''.REAL_DIR.'/install/\';</script>';
+    exit;
 }
 
 //////////////////////////////
