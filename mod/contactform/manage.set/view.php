@@ -94,7 +94,6 @@ class View extends \Controller\Make_Controller{
             $sql->specialchars = 0;
             $sql->nl2br = 0;
             $reparr = $sql->fetchs();
-            $sql->array;
 
             $repview = array();
             if(isset($reparr)){
