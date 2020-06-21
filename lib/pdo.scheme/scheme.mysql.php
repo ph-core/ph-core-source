@@ -206,7 +206,7 @@ class Scheme extends \Make\Database\Pdosql{
             return "
                 SELECT *
                 FROM {$this->table("member")}
-                WHERE mb_id=:col1 AND mb_dregdate IS NULL AND (mb_pwd=old_password(:col2) OR mb_pwd=password(:col2))
+                WHERE mb_id=:col1 AND mb_dregdate IS NULL AND mb_pwd=password(:col2)
             ";
         }
 
