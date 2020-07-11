@@ -159,7 +159,7 @@
 #mbpop .tit{position: absolute;top: 0;left: auto;z-index: 302;width: 100%;line-height: 45px;padding: 0 15px;background: #333333;box-sizing: border-box;box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
 #mbpop .tit h2{color: #ffffff;font-size: 14px;font-weight: normal;}
 #mbpop .tit .close{display: block;position: absolute;top: 0;right: 0;width: 50px;height: 50px;line-height: 50px;text-decoration: none;font-size: 16px;color: #ffffff;text-align: center;}
-#mbpop .cont{padding: 30px;}
+#mbpop .cont{height: 100%;padding: 30px;overflow-y: auto;box-sizing: border-box;}
 #mbpop .mb-tbl{width: 100%;}
 #mbpop .mb-tbl tbody tr > *{padding: 10px;border-bottom:1px solid #f7f7f7;font-size: 13px;}
 #mbpop .mb-tbl tbody th{text-align: left;color: #000000;font-weight: normal;}

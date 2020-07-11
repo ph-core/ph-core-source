@@ -62,6 +62,7 @@ class Bnlist extends \Controller\Make_Controller{
             ;
         $list_cnt = $sql->getcount();
         $total_cnt = Func::number($paging->totalCount);
+        $print_arr = array();
 
         if($list_cnt>0){
             do{
