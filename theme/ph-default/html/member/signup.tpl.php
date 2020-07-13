@@ -3,8 +3,15 @@
 
         <h4>회원가입</h4>
 
+        <!-- Kakao login -->
+        <a id="kakao-login" href="<?php echo PH_PLUGIN_DIR; ?>/snslogin/getlogin.php?get_sns=kakao">카카오 아이디로 회원가입</a>
+        <!-- Naver login -->
+        <a id="naver-login" href="<?php echo PH_PLUGIN_DIR; ?>/snslogin/getlogin.php?get_sns=naver">네이버 아이디로 회원가입</a>
+
+        <p class="mt10">SNS 회원가입시 <strong>이용약관</strong>과 <strong>개인정보처리방침</strong>에 동의하는 것으로 간주합니다.</p>
+
         <!-- 이용약관 동의 -->
-        <fieldset class="agr-box">
+        <fieldset class="agr-box mt30">
             <h5>이용약관 동의</h5>
             <div class="txt">
                 <?php echo $CONF['policy']; ?>

@@ -210,6 +210,22 @@ class Scheme extends \Make\Database\Pdosql{
             ";
         }
 
+        if($type=="select:mb_sns_ka_signin"){
+            return "
+                SELECT *
+                FROM {$this->table("member")}
+                WHERE mb_sns_ka=:col1 AND mb_dregdate IS NULL
+            ";
+        }
+
+        if($type=="select:mb_sns_nv_signin"){
+            return "
+                SELECT *
+                FROM {$this->table("member")}
+                WHERE mb_sns_nv=:col1 AND mb_dregdate IS NULL
+            ";
+        }
+
         if($type=="select:id_inspt"){
             return "
                 SELECT *
@@ -226,12 +242,44 @@ class Scheme extends \Make\Database\Pdosql{
             ";
         }
 
+        if($type=="select:mb_sns_ka_id_inspt"){
+            return "
+                SELECT *
+                FROM {$this->table("member")}
+                WHERE mb_sns_ka=:col1 AND mb_dregdate IS NULL
+            ";
+        }
+
+        if($type=="select:mb_sns_nv_id_inspt"){
+            return "
+                SELECT *
+                FROM {$this->table("member")}
+                WHERE mb_sns_nv=:col1 AND mb_dregdate IS NULL
+            ";
+        }
+
         if($type=="insert:signup"){
             return "
                 INSERT INTO {$this->table("member")}
-                (mb_id,mb_email,mb_pwd,mb_name,mb_gender,mb_phone,mb_telephone,mb_email_chk,mb_regdate,mb_1,mb_2,mb_3,mb_4,mb_5,mb_6,mb_7,mb_8,mb_9,mb_10,mb_exp)
+                (mb_id,mb_email,mb_pwd,mb_name,mb_gender,mb_phone,mb_telephone,mb_email_chk,mb_regdate,mb_1,mb_2,mb_3,mb_4,mb_5,mb_6,mb_7,mb_8,mb_9,mb_10,mb_sns_ka,mb_sns_nv,mb_sns_ka_token,mb_sns_nv_token,mb_exp)
                 VALUES
-                (:col1,:col2,password(:col3),:col4,:col5,:col6,:col7,:col8,now(),:col9,:col10,:col11,:col12,:col13,:col14,:col15,:col16,:col17,:col18,:col19)
+                (:col1,:col2,password(:col3),:col4,:col5,:col6,:col7,:col8,now(),:col9,:col10,:col11,:col12,:col13,:col14,:col15,:col16,:col17,:col18,:col19,:col20,:col21,:col22,:col23)
+            ";
+        }
+
+        if($type=="update:sns_login_update_token_ka"){
+            return "
+                UPDATE {$this->table("member")}
+                SET mb_sns_ka_token=:col1
+                WHERE mb_sns_ka=:col2 AND mb_dregdate IS NULL
+            ";
+        }
+
+        if($type=="update:sns_login_update_token_nv"){
+            return "
+                UPDATE {$this->table("member")}
+                SET mb_sns_nv_token=:col1
+                WHERE mb_sns_nv=:col2 AND mb_dregdate IS NULL
             ";
         }
 

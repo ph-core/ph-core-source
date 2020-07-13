@@ -105,6 +105,8 @@ class Siteinfo extends \Controller\Make_Controller{
         $this->set('use_mobile',set_checked($arr,'st_use_mobile'));
         $this->set('use_emailchk',set_checked($arr,'st_use_emailchk'));
         $this->set('use_recaptcha',set_checked($arr,'st_use_recaptcha'));
+        $this->set('use_sns_ka',set_checked($arr,'st_use_sns_ka'));
+        $this->set('use_sns_nv',set_checked($arr,'st_use_sns_nv'));
         $this->set('use_smtp',set_checked($arr,'st_use_smtp'));
         $this->set('logo_src',logo_src($arr));
         $this->set('favicon_src',favicon_src($arr));

@@ -20,7 +20,7 @@ class submit{
 
         Method::security('REFERER');
         Method::security('REQUEST_POST');
-        $req = Method::request('POST','title,domain,description,use_mobile,use_emailchk,use_recaptcha,recaptcha_key1,recaptcha_key2,email,tel,mb_division,theme,use_smtp,smtp_server,smtp_port,smtp_id,smtp_pwd,script,privacy,policy,favicon_del,uploaded_favicon,logo_del,uploaded_logo,st_1,st_2,st_3,st_4,st_5,st_6,st_7,st_8,st_9,st_10,st_exp');
+        $req = Method::request('POST','title,domain,description,use_mobile,use_emailchk,use_recaptcha,recaptcha_key1,recaptcha_key2,use_sns_ka,sns_ka_key1,sns_ka_key2,use_sns_nv,sns_nv_key1,sns_nv_key2,email,tel,mb_division,theme,use_smtp,smtp_server,smtp_port,smtp_id,smtp_pwd,script,privacy,policy,favicon_del,uploaded_favicon,logo_del,uploaded_logo,st_1,st_2,st_3,st_4,st_5,st_6,st_7,st_8,st_9,st_10,st_exp');
         $file = Method::request('FILE','favicon,logo');
         $manage->req_hidden_inp('POST');
 
@@ -37,6 +37,16 @@ class submit{
         if($req['use_recaptcha']=='Y'){
             Valid::notnull('recaptcha_key1',$req['recaptcha_key1'],'');
             Valid::notnull('recaptcha_key2',$req['recaptcha_key2'],'');
+        }
+
+        if($req['use_sns_ka']=='Y'){
+            Valid::notnull('sns_ka_key1',$req['sns_ka_key1'],'');
+            Valid::notnull('sns_ka_key2',$req['sns_ka_key2'],'');
+        }
+
+        if($req['use_sns_nv']=='Y'){
+            Valid::notnull('sns_nv_key1',$req['sns_nv_key1'],'');
+            Valid::notnull('sns_nv_key2',$req['sns_nv_key2'],'');
         }
 
         if($req['use_smtp']=='Y'){
@@ -98,7 +108,7 @@ class submit{
         $sql->query(
             $sql->scheme->siteinfo('update:siteinfo'),
             array(
-                $req['title'],$req['domain'],$req['description'],$req['use_mobile'],$req['use_emailchk'],$req['use_recaptcha'],$req['recaptcha_key1'],$req['recaptcha_key2'],$req['email'],$req['tel'],$favicon_name,$logo_name,$mb_division,$req['use_smtp'],$req['smtp_server'],$req['smtp_port'],$req['smtp_id'],$req['smtp_pwd'],$req['privacy'],$req['policy'],$req['st_1'],$req['st_2'],$req['st_3'],$req['st_4'],$req['st_5'],$req['st_6'],$req['st_7'],$req['st_8'],$req['st_9'],$req['st_10'],$st_exp
+                $req['title'],$req['domain'],$req['description'],$req['use_mobile'],$req['use_emailchk'],$req['use_recaptcha'],$req['recaptcha_key1'],$req['recaptcha_key2'],$req['use_sns_ka'],$req['sns_ka_key1'],$req['sns_ka_key2'],$req['use_sns_nv'],$req['sns_nv_key1'],$req['sns_nv_key2'],$req['email'],$req['tel'],$favicon_name,$logo_name,$mb_division,$req['use_smtp'],$req['smtp_server'],$req['smtp_port'],$req['smtp_id'],$req['smtp_pwd'],$req['privacy'],$req['policy'],$req['st_1'],$req['st_2'],$req['st_3'],$req['st_4'],$req['st_5'],$req['st_6'],$req['st_7'],$req['st_8'],$req['st_9'],$req['st_10'],$st_exp
             )
         );
 

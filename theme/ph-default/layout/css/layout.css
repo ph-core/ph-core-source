@@ -195,6 +195,8 @@ textarea{padding: 10px;width: 100%;min-height: 200px;border: 1px solid #dddddd;b
 #signin .ft-btn{padding: 25px 0;margin-top: 20px;background: #f7f7f7;text-align: center;}
 #signin .ft-btn li{display: inline-block;margin: 0 15px;}
 #signin .ft-btn li a{font-size: 13px;}
+#kakao-login{display: block;margin: 2px 0;background: #ffba00;line-height: 40px;text-align: center;font-size: 14px;color: #201801;text-decoration: none;font-weight: 300;border-radius: 3px;letter-spacing: -1px;}
+#naver-login{display: block;margin: 2px 0;background: #7cd20c;line-height: 40px;text-align: center;font-size: 14px;color: #201801;text-decoration: none;font-weight: 300;border-radius: 3px;letter-spacing: -1px;}
 
 /* blocked */
 #blocked{width: 700px;margin: 100px auto;}

@@ -17,11 +17,11 @@ if(step1_chk()===false){
 if(!file_exists('../data/dbconn.temp.php')){
 
     if(!$req['engine'] || !$req['host'] || !$req['name'] || !$req['user'] || !$req['pwd'] || !$req['pfx']){
-        Func::err_back('Database 정보가 입력되지 않았습니다.');
+        Func::err_location('Database 정보가 입력되지 않았습니다.','./index.php');
     }
 
     if(!preg_match('/^[0-9a-zA-Z_]+$/',$req['pfx'])){
-        Func::err_back('Table Prefix가 올바르지 않습니다.');
+        Func::err_location('Table Prefix가 올바르지 않습니다.','./index.php');
     }
 
     try{
@@ -37,7 +37,7 @@ if(!file_exists('../data/dbconn.temp.php')){
         }
     }
     catch(Exception $e){
-        Func::err_location('Database 접속에 실패했습니다.','./');
+        Func::err_location('Database 접속에 실패했습니다.','./index.php');
     }
 
     include_once './scheme/core.'.$req['engine'].'.sql';

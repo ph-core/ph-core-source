@@ -209,6 +209,76 @@
                         </table>
                     </td>
                 </tr>
+                <tr>
+                    <th>카카오 로그인</th>
+                    <td>
+                        <table class="table2">
+                            <tbody>
+                                <tr>
+                                    <th>사용 유무</th>
+                                    <td>
+                                        <label class="mr10"><input type="radio" name="use_sns_ka" value="Y" <?php echo $use_sns_ka['Y']; ?> /> 사용</label>
+                                        <label><input type="radio" name="use_sns_ka" value="N" <?php echo $use_sns_ka['N']; ?> /> 사용안함</label>
+                                        <span class="tbl_sment">
+                                            로그인 화면에서 카카오 로그인 기능을 사용하려면 체크 합니다.
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Client ID</th>
+                                    <td>
+                                        <input type="text" name="sns_ka_key1" class="inp w50p" title="카카오 Client ID" value="<?php echo $write['st_sns_ka_key1']; ?>" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Client Secret</th>
+                                    <td>
+                                        <input type="text" name="sns_ka_key2" class="inp w50p" title="카카오 Client Secret" value="<?php echo $write['st_sns_ka_key2']; ?>" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Callback URI</th>
+                                    <td><?php echo PH_DOMAIN.'/plugin/snslogin/kakaologin.php'; ?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <th>네이버 로그인</th>
+                    <td>
+                        <table class="table2">
+                            <tbody>
+                                <tr>
+                                    <th>사용 유무</th>
+                                    <td>
+                                        <label class="mr10"><input type="radio" name="use_sns_nv" value="Y" <?php echo $use_sns_nv['Y']; ?> /> 사용</label>
+                                        <label><input type="radio" name="use_sns_nv" value="N" <?php echo $use_sns_nv['N']; ?> /> 사용안함</label>
+                                        <span class="tbl_sment">
+                                            로그인 화면에서 네이버 로그인 기능을 사용하려면 체크 합니다.
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Client ID</th>
+                                    <td>
+                                        <input type="text" name="sns_nv_key1" class="inp w50p" title="네이버 Client ID" value="<?php echo $write['st_sns_nv_key1']; ?>" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Client Secret</th>
+                                    <td>
+                                        <input type="text" name="sns_nv_key2" class="inp w50p" title="네이버 Client Secret" value="<?php echo $write['st_sns_nv_key2']; ?>" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Callback URI</th>
+                                    <td><?php echo PH_DOMAIN.'/plugin/snslogin/naverlogin.php'; ?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
             </tbody>
         </table>
 

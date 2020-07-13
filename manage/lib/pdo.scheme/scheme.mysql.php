@@ -84,7 +84,7 @@ class Scheme extends \Make\Database\Pdosql{
                 UPDATE
                 {$this->table("siteconfig")}
                 SET
-                st_title=:col1,st_domain=:col2,st_description=:col3,st_use_mobile=:col4,st_use_emailchk=:col5,st_use_recaptcha=:col6,st_recaptcha_key1=:col7,st_recaptcha_key2=:col8,st_email=:col9,st_tel=:col10,st_favicon=:col11,st_logo=:col12,st_mb_division=:col13,st_use_smtp=:col14,st_smtp_server=:col15,st_smtp_port=:col16,st_smtp_id=:col17,st_smtp_pwd=:col18,st_privacy=:col19,st_policy=:col20,st_1=:col21,st_2=:col22,st_3=:col23,st_4=:col24,st_5=:col25,st_6=:col26,st_7=:col27,st_8=:col28,st_9=:col29,st_10=:col30,st_exp=:col31
+                st_title=:col1,st_domain=:col2,st_description=:col3,st_use_mobile=:col4,st_use_emailchk=:col5,st_use_recaptcha=:col6,st_recaptcha_key1=:col7,st_recaptcha_key2=:col8,st_use_sns_ka=:col9,st_sns_ka_key1=:col10,st_sns_ka_key2=:col11,st_use_sns_nv=:col12,st_sns_nv_key1=:col13,st_sns_nv_key2=:col14,st_email=:col15,st_tel=:col16,st_favicon=:col17,st_logo=:col18,st_mb_division=:col19,st_use_smtp=:col20,st_smtp_server=:col21,st_smtp_port=:col22,st_smtp_id=:col23,st_smtp_pwd=:col24,st_privacy=:col25,st_policy=:col26,st_1=:col27,st_2=:col28,st_3=:col29,st_4=:col30,st_5=:col31,st_6=:col32,st_7=:col33,st_8=:col34,st_9=:col35,st_10=:col36,st_exp=:col37
             ";
         }
 

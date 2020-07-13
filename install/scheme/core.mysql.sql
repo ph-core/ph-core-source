@@ -80,6 +80,11 @@ CREATE TABLE IF NOT EXISTS {$req['pfx']}member (
     mb_point int(11) default '0',
     mb_email_chk char(1) default 'N',
     mb_email_chg varchar(255) NOT NULL,
+    mb_sns_ka text default NULL,
+    mb_sns_ka_token text default NULL,
+    mb_sns_nv text default NULL,
+    mb_sns_nv_token text default NULL,
+    mb_app_key text default NULL,
     mb_regdate datetime default NULL,
     mb_dregdate datetime default NULL,
     mb_1 text,
@@ -181,6 +186,12 @@ CREATE TABLE IF NOT EXISTS {$req['pfx']}siteconfig (
     st_meta text,
     st_privacy text,
     st_policy text,
+    st_use_sns_ka char(1) default 'N',
+    st_sns_ka_key1 text default NULL,
+    st_sns_ka_key2 text default NULL,
+    st_use_sns_nv char(1) default 'N',
+    st_sns_nv_key1 text default NULL,
+    st_sns_nv_key2 text default NULL,
     st_1 text,
     st_2 text,
     st_3 text,
@@ -195,8 +206,8 @@ CREATE TABLE IF NOT EXISTS {$req['pfx']}siteconfig (
     PRIMARY KEY  (st_idx)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO {$req['pfx']}siteconfig (st_idx, st_title, st_domain, st_description, st_use_mobile, st_use_emailchk, st_email, st_tel, st_favicon, st_logo, st_mb_division, st_og_type, st_og_title, st_og_description, st_og_image, st_og_url, st_naver_verific, st_google_verific, st_theme, st_use_smtp, st_smtp_server, st_smtp_port, st_smtp_id, st_smtp_pwd, st_script, st_meta, st_privacy, st_policy, st_1, st_2, st_3, st_4, st_5, st_6, st_7, st_8, st_9, st_10, st_exp) VALUES
-(0, '테스트사이트', '".$protocol.$_SERVER['HTTP_HOST'].$realdir."', '테스트사이트입니다.', 'Y', 'Y', '', '', '', '', '최고관리자|관리자|게시판관리자|정회원|정회원|정회원|정회원|정회원|일반회원|비회원', 'website', '테스트사이트', '테스트사이트 설명', '', '".$protocol.$_SERVER['HTTP_HOST'].$realdir."', '', '', 'ph-default', 'N', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '|||||||||');
+INSERT INTO {$req['pfx']}siteconfig (st_idx, st_title, st_domain, st_description, st_use_mobile, st_use_emailchk, st_email, st_tel, st_favicon, st_logo, st_mb_division, st_og_type, st_og_title, st_og_description, st_og_image, st_og_url, st_naver_verific, st_google_verific, st_theme, st_use_smtp, st_smtp_server, st_smtp_port, st_smtp_id, st_smtp_pwd, st_script, st_meta, st_privacy, st_policy, st_use_sns_ka, st_sns_ka_key1, st_sns_ka_key2, st_use_sns_nv, st_sns_nv_key1, st_sns_nv_key2, st_1, st_2, st_3, st_4, st_5, st_6, st_7, st_8, st_9, st_10, st_exp) VALUES
+(0, '테스트사이트', '".$protocol.$_SERVER['HTTP_HOST'].$realdir."', '테스트사이트입니다.', 'Y', 'Y', '', '', '', '', '최고관리자|관리자|게시판관리자|정회원|정회원|정회원|정회원|정회원|일반회원|비회원', 'website', '테스트사이트', '테스트사이트 설명', '', '".$protocol.$_SERVER['HTTP_HOST'].$realdir."', '', '', 'ph-default', 'N', '', '', '', '', '', '', '', '', 'N', NULL, NULL, 'N', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '|||||||||');
 
 CREATE TABLE IF NOT EXISTS {$req['pfx']}sitemap (
     idx int(11) NOT NULL,

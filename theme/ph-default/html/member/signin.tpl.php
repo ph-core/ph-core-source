@@ -17,4 +17,13 @@
         </ul>
 
     </form>
+
+    <h4 class="mt20">SNS 로그인</h4>
+
+    <!-- Kakao login -->
+    <a id="kakao-login" href="<?php echo PH_PLUGIN_DIR; ?>/snslogin/getlogin.php?get_sns=kakao&redirect=<?php echo $redirect; ?>">카카오 아이디로 로그인</a>
+    <!-- Naver login -->
+    <a id="naver-login" href="<?php echo PH_PLUGIN_DIR; ?>/snslogin/getlogin.php?get_sns=naver&redirect=<?php echo $redirect; ?>">네이버 아이디로 로그인</a>
+
+    <p class="mt10">SNS 로그인시 <strong>이용약관</strong>과 <strong>개인정보처리방침</strong>에 동의하는 것으로 간주합니다.</p>
 </div>
